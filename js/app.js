@@ -9,6 +9,8 @@ let seattle = {
   minCustomer: 23,
   maxCustomer: 65,
   avgCookieBought: 6.3, 
+
+  // This is called a helper function
   randomCustomerPerHour: function()
   {
     return Math.floor(Math.random() * (this.maxCustomer -this.minCustomer + 1) + this.minCustomer);
