@@ -140,7 +140,7 @@ let Dubai = {
   },
 
   cookiesBoughtPerHour2: [],
-  totalDailyCookies2: 0, 
+  totalDailyCookies2: 0,
 
   cookiesHour2: function()
   {
@@ -148,13 +148,12 @@ let Dubai = {
     {
       let simCookies2 = Math.ceil(this.avgCookieBought2 *this.randomCustomerPerHour2());
       this.cookiesBoughtPerHour2.push(simCookies2);
-      this.totalDailyCookies2 += simCookies2;
-      
+      this.totalDailyCookies2 += simCookies2; 
     }
   },
 
-  render: function()
-  {
+  // Render
+  render: function(){
     this.cookiesHour2();
     let articleElem = document.createElement('article');
     console.log(this.cookiesBoughtPerHour2);
@@ -167,17 +166,19 @@ let Dubai = {
     let ulElem = document.createElement('ul');
     articleElem.appendChild(ulElem);
 
-    for(let i = 0; i < this.cookiesBoughtPerHour2.length; i++)
-    {
+    for(let i = 0; i < this.cookiesBoughtPerHour2.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour2} Cookies!`
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour2[i]} Cookies!`;
       ulElem.appendChild(liElem);
     }
 
     let liElem = document.createElement('li');
     liElem.textContent = `Total: ${this.totalDailyCookies2} Cookies`;
     ulElem.appendChild(liElem);
+
+
   }
+
 };
 
 Dubai.randomCustomerPerHour2();
@@ -295,7 +296,7 @@ let Lima = {
 
 Lima.randomCustomerPerHour4();
 Lima.render();
-console.log(TLima);
+console.log(Lima);
 
 
 
