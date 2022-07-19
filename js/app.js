@@ -25,7 +25,7 @@ let seattle = {
       // add that calculation to the array by using this.cookiesBoughtPerHour.push(calculated number)
       this.cookiesBoughtPerHour.push(simCookies);
       // Add all of the cookies together.
-      this.totalDailyCookies += simCookies
+      this.totalDailyCookies += simCookies;
     }
   },
 // Rendering itself to the HTML Document: Dom Manipulation pt 2
@@ -70,3 +70,65 @@ console.log(seattle.totalDailyCookies);
 seattle.randomCustomerPerHour();
 seattle.render();
 console.log(seattle);
+
+
+let Tokyo = {
+  city1: 'Tokyo',
+  minCustomer1: 3,
+  maxCustomer1: 24,
+  avgCookieBought1: 1.2,
+  randomCustomerPerHour1: function()
+  {
+    return Math.floor(Math.random() * (this.maxCustomer1 - this.minCustomer1 + 1) + this.minCustomer1);
+  },
+
+  cookiesBoughtPerHour1: [],
+  totalDailyCookies1: 0,
+
+  cookiesHour1: function()
+  {
+    for(let i = 0; i < hours.length; i++)
+    {
+      let simCookies1 = Math.ceil(this.avgCookieBought1 *this.randomCustomerPerHour1());
+      this.cookiesBoughtPerHour1.push(simCookies1);
+      this.totalDailyCookies1 += simCookies1; 
+    }
+  },
+
+  // Render
+  render: function(){
+    this.cookiesHour1();
+    let articleElem = document.createElement('article');
+    console.log(this.cookiesBoughtPerHour1);
+    cookiesSale.appendChild(articleElem);
+
+    let h2Elem = document.createElement('h2');
+    h2Elem.textContent = this.city1;
+    articleElem.appendChild(h2Elem);
+
+    let ulElem = document.createElement('ul');
+    articleElem.appendChild(ulElem);
+
+    for(let i = 0; i < this.cookiesBoughtPerHour1.length; i++){
+      let liElem = document.createElement('li');
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour1[i]} Cookies!`;
+      ulElem.appendChild(liElem);
+    }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.totalDailyCookies1} Cookies`;
+    ulElem.appendChild(liElem);
+
+
+  }
+
+};
+
+Tokyo.randomCustomerPerHour1();
+Tokyo.render();
+console.log(Tokyo);
+
+
+let Dubai = {
+  city2:
+}
