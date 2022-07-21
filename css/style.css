@@ -97,7 +97,7 @@ table{
   border: solid 5px;
   text-align: center;
   align-items: center;
-  margin-left: 620px;
+  margin: auto;
   border-collapse: collapse;
 	border-spacing: 5px;
   background-color: rgb(102, 35, 4);
