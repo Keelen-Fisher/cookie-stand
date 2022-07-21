@@ -5,6 +5,7 @@
     <title>Pat's Salmon Cookies!</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="index.html">
+
 </head>
 <body>
   
@@ -24,36 +25,20 @@
         <!-- Option 1: have input and label as siblings/ Important need "for" on label , "id", on input, tethers them together-->
           
         <label for="City">City:</label>
-        <input type="City" name="text" name="City">
+        <input id="City" text="text" name="City" required>
 
-        <label for="photo">Photo: </label>
-        <input type="text" name="photo" id="photo">
+        <label for="maxCust">Maximum Customers at this Hour: </label>
+        <input id="maxCust" text="number" name="minCust" required>
 
+        <label for="minCust">Minimum Customers at This Hour: </label>
+        <input id="minCust"text="number" name="minCust" required>
 
-  
-        <!-- event.target.firstName.value === whatever the user enters -->
-  
-        <!-- <label>Age:<input type="number" name="age" required></label> -->
-          <!-- event.target.age.value -->
-        
-  
-        <!-- <label for="password">Password:</label>
-        <input type="password"type="password" name="password">
-  
-        <select name="artists" id="rappers">
-  
-          <option value="kdot">Kendrick Lamar</option>
-          <option value="dreamville">J. Cole</option>
-          <option value="bf">Brent Faiyaz</option>
-          <option value="none">N/A</option>
-          
-        </select> -->
-  
-  
+        <label for="avgCookie">The Average Cookie Sold: </label>
+        <input id="avgCookie" text="number" name="avgCookie" required>
       </fieldset>
 
+
       <button type="submit">Submit</button>
-  
     </form>
 
 

@@ -49,9 +49,9 @@ Cookies.prototype.randomCustomerPerHour = function(){
 Cookies.prototype.cookiesHour = function()
 {
   for(let i = 0; i < hours.length; i++){
-  let simCookies = Math.ceil(this.avgCookie * this.randomCustomerPerHour());
-  this.cookiesBoughtPerHour.push(simCookies);
-  this.totalDailyCookies += simCookies;
+    let simCookies = Math.ceil(this.avgCookie * this.randomCustomerPerHour());
+    this.cookiesBoughtPerHour.push(simCookies);
+    this.totalDailyCookies += simCookies;
   }
 
 };
@@ -61,7 +61,7 @@ function createHeader(){
   salesTable.appendChild(rowNew);
 
   let emptySpace = document.createElement('td');
-  rowNew.appendChild(emptySpace);
+    rowNew.appendChild(emptySpace);
 
   for(let i = 0; i < hours.length; i++){
     let th2Elem = document.createElement('th');
@@ -74,7 +74,7 @@ function createHeader(){
 Cookies.prototype.render = function()
 {
 let rowElem = document.createElement('tr');
-salesTable.appendChild(rowElem);
+  salesTable.appendChild(rowElem);
 
 let th1Elem = document.createElement('th');
 th1Elem.textContent = this.city
@@ -87,8 +87,8 @@ for(let i = 0; i < hours.length; i++){
 }
 
 let td2Elem = document.createElement('td');
-td2Elem.textContent = this.totalDailyCookies;
-rowElem.appendChild(td2Elem);
+  td2Elem.textContent = this.totalDailyCookies;
+  rowElem.appendChild(td2Elem);
 
 
 // let ulElem = document.createElement('ul');
@@ -99,49 +99,52 @@ rowElem.appendChild(td2Elem);
 //   liElem.textContent = this.cookiesBoughtPerHour[i];
 //   ulElem.appendChild(liElem);
 // };
-
-
-// Speak with instructor/TA over this area
-  function renderHeader(){
-
-}
-
-
-
+// Speak with instructor/TA over this area  
 };
 
-function renderFooter(){
- let tr = documument.createElement('tr');
- salesTable.appendChild(tr);
+function renderHeader()
+{
+  let tr = document.createElement('tr');
+  salesTable.appendChild(tr);
+  let thHour = document.createElement('th');
+  thHour.textContent = 'Hourly Totals';
+  tr.appendChild(thHour);
+};
+
+
+function renderFooter()
+{
+ let trElem = document.createElement('tr');
+ salesTable.appendChild(trElem);
 
 //  BUILD CONTENT FOR ROW 
 // total string
 
-let th = document.createElement('th');
-th.textContent = 'Totals';
-tr.appendChild(th);
+let th3Elem = document.createElement('th');
+  th3Elem.textContent = 'Totals';
+  trElem.appendChild(th3Elem);
 
 // nested loop
-
+let grandTotal = 0;
 for(let i = 0; i < hours.length; i++)
 {
   let hourlyTotal = 0;
-  for(let j = 0; j < allStore.length; j++)
+
+  for(let j = 0; j < cookieArray.length; j++)
   {
-    hourlyTotal = hourlyTotal + allStore[j].cookiesBoughtPerHour[i];
-    this.totalDailyCookies = this.totalDailyCookies + allStore[j].cookiesBoughtPerHour[i];
+    hourlyTotal = hourlyTotal + cookieArray[j].cookiesBoughtPerHour[i];
+    grandTotal = grandTotal + cookieArray[j].cookiesBoughtPerHour[i];
   }
 
 }
-let td = document.createElement('td');
-td.textContent = hourlyTotal;
-tr.appendChild(td);
+let td3Elem = document.createElement('td');
+  td3Elem.textContent = hourlyTotal;
+  trElem.appendChild(td3Elem);
 
-let td2 = document.createElement('td');
-  td.textContent = this.totalDailyCookies;
-  tr.appendChild
-
-}
+let td4Elem = document.createElement('td');
+  td4Elem.textContent = grandTotal;
+  trElem.appendChild(td3Elem);
+};
 
 
 
@@ -164,7 +167,7 @@ let lima = new Cookies('Lima', 2, 16, 4.6);
 
 
 createHeader();
-renderFooter();
+
 
 seattle.cookiesHour();
 seattle.render();
@@ -181,28 +184,35 @@ paris.render();
 lima.cookiesHour();
 lima.render();
 
+renderFooter();
 // ********** Form Insert ****************
 
 // ******** Step 3: Define our callback **********
 
-function handleSubmit(event){
-  event.preventDefault();
+// function handleSubmit(event){
+//   event.preventDefault();
 
-  // let name = event.target.[insert your chosen name] .value
-  // let photo = event.target.photo.value
-  // let [insert our own variable in lab] = event.target."".value
-
-  // splits a string into an array of substrings and return the new array
-  // [variable]= [variable].split(',');
-
-  // let newArray = new Array(name, photo, [insert our own variable in lab], [variable]);
-  // Hint: Remove your footer (google it) and recreate it.
+//   // let city = event.target.City.value
+//   // let maxCustL = event.target.maxCust.value
+//   // let minCustL = event.target.minCust.value
+//   // let avgCookieL = event.target.avgCookie.value
 
 
-  // A way to reset the website: 
+//   // splits a string into an array of substrings and return the new array
+//   // [variable]= [variable].split(',');
 
-}
+//   // let newArray = new Array(city, maxCustL, minCustL, avgCookieL);
+//   // Hint: Remove your footer (google it) and recreate it.
 
 
-// ************ STEP 2:  Attach event listener for form lab 09*************
-myForm.addEventListener('submit', handleSubmit);
+//   // A way to reset the website: 
+
+//     // newArray.cookiesHour();
+//     // newArray.render();
+
+    
+// }
+
+
+// // ************ STEP 2:  Attach event listener for form lab 09*************
+// myForm.addEventListener('submit', handleSubmit);
