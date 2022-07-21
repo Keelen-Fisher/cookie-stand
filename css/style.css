@@ -1,0 +1,106 @@
+header{
+  margin: 50px;
+  padding: 50px;
+  background-color:rgb(102, 35, 4);
+  border: solid 5px
+}
+
+nav ul, nav ul a{
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: larger;
+  color: white;
+  
+}
+
+
+img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px
+}
+
+h1
+{
+  font-family: 'IM Fell Great Primer SC', serif;
+  color: blanchedalmond;
+  text-align: center;
+  
+}
+
+h2
+{
+  font-family:Arial, Helvetica, sans-serif;
+  color: rgb(223, 46, 214);
+  text-align: center;
+}
+
+h3
+{
+  text-align: center;
+}
+
+p
+{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(150, 185, 231);
+  text-align: center;
+  font-size: larger;
+}
+
+body
+{
+background-color: rgb(247, 108, 93);
+}
+
+main ul {
+ /* display: flex; */
+ justify-content: space-evenly;
+ text-decoration: none;
+}
+
+img{
+  max-width: 30%;
+  height: auto;
+}
+
+article img{
+  display: inline-block;
+}
+
+section{
+  text-align: center;
+  background-color: rgb(102, 35, 4);
+  color: white;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: solid;
+  border-color: black;
+}
+
+section ul {
+  list-style: none;
+  font-size: larger;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+table{
+  /* display: grid; */
+  border: solid 5px;
+  text-align: center;
+  align-items: center;
+  margin-left: 620px;
+  border-collapse: collapse;
+	border-spacing: 5px;
+  background-color: rgb(102, 35, 4);
+  color: blanchedalmond;
+
+}
