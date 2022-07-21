@@ -2,6 +2,9 @@
 
 let cookiesSale = document.getElementById('cookie-city');
 let salesTable = document.getElementById('sales-table');
+// ************ STEP 1: 
+let myForm = document.getElementById('my-form');
+
 // console.dir(cookiesSale);
 // console.dir(salesTable);
 
@@ -97,8 +100,48 @@ rowElem.appendChild(td2Elem);
 //   ulElem.appendChild(liElem);
 // };
 
-  
+
+// Speak with instructor/TA over this area
+  function renderHeader(){
+
+}
+
+
+
 };
+
+function renderFooter(){
+ let tr = documument.createElement('tr');
+ salesTable.appendChild(tr);
+
+//  BUILD CONTENT FOR ROW 
+// total string
+
+let th = document.createElement('th');
+th.textContent = 'Totals';
+tr.appendChild(th);
+
+// nested loop
+
+for(let i = 0; i < hours.length; i++)
+{
+  let hourlyTotal = 0;
+  for(let j = 0; j < allStore.length; j++)
+  {
+    hourlyTotal = hourlyTotal + allStore[j].cookiesBoughtPerHour[i];
+    this.totalDailyCookies = this.totalDailyCookies + allStore[j].cookiesBoughtPerHour[i];
+  }
+
+}
+let td = document.createElement('td');
+td.textContent = hourlyTotal;
+tr.appendChild(td);
+
+let td2 = document.createElement('td');
+  td.textContent = this.totalDailyCookies;
+  tr.appendChild
+
+}
 
 
 
@@ -121,6 +164,7 @@ let lima = new Cookies('Lima', 2, 16, 4.6);
 
 
 createHeader();
+renderFooter();
 
 seattle.cookiesHour();
 seattle.render();
@@ -137,5 +181,28 @@ paris.render();
 lima.cookiesHour();
 lima.render();
 
+// ********** Form Insert ****************
+
+// ******** Step 3: Define our callback **********
+
+function handleSubmit(event){
+  event.preventDefault();
+
+  // let name = event.target.[insert your chosen name] .value
+  // let photo = event.target.photo.value
+  // let [insert our own variable in lab] = event.target."".value
+
+  // splits a string into an array of substrings and return the new array
+  // [variable]= [variable].split(',');
+
+  // let newArray = new Array(name, photo, [insert our own variable in lab], [variable]);
+  // Hint: Remove your footer (google it) and recreate it.
 
 
+  // A way to reset the website: 
+
+}
+
+
+// ************ STEP 2:  Attach event listener for form lab 09*************
+myForm.addEventListener('submit', handleSubmit);

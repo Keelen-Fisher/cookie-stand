@@ -14,6 +14,49 @@
   </header>
 
   <main>
+
+    <!-- create From for Table -->
+    <form id="my-form">
+      <fieldset>
+        <legend>Fieldset Context</legend>
+  
+        <!-- inputs and labels: 2 options -->
+        <!-- Option 1: have input and label as siblings/ Important need "for" on label , "id", on input, tethers them together-->
+          
+        <label for="City">City:</label>
+        <input type="City" name="text" name="City">
+
+        <label for="photo">Photo: </label>
+        <input type="text" name="photo" id="photo">
+
+
+  
+        <!-- event.target.firstName.value === whatever the user enters -->
+  
+        <!-- <label>Age:<input type="number" name="age" required></label> -->
+          <!-- event.target.age.value -->
+        
+  
+        <!-- <label for="password">Password:</label>
+        <input type="password"type="password" name="password">
+  
+        <select name="artists" id="rappers">
+  
+          <option value="kdot">Kendrick Lamar</option>
+          <option value="dreamville">J. Cole</option>
+          <option value="bf">Brent Faiyaz</option>
+          <option value="none">N/A</option>
+          
+        </select> -->
+  
+  
+      </fieldset>
+
+      <button type="submit">Submit</button>
+  
+    </form>
+
+
     <h2>Cities, Times, and Cookies Here!</h2>
     <section id="cookie-city"></section>
     <table id="sales-table"></table>
