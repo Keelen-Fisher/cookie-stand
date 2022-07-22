@@ -69,10 +69,15 @@ function createHeader(){
     rowNew.appendChild(th2Elem);
   }
 
+  let thHour = document.createElement('th');
+  thHour.textContent = 'Hourly Totals';
+  rowNew.appendChild(thHour);
+
 };
 
 Cookies.prototype.render = function()
 {
+this.cookiesHour();
 let rowElem = document.createElement('tr');
   salesTable.appendChild(rowElem);
 
@@ -102,18 +107,17 @@ let td2Elem = document.createElement('td');
 // Speak with instructor/TA over this area  
 };
 
-function renderHeader()
-{
-  let tr = document.createElement('tr');
-  salesTable.appendChild(tr);
-  let thHour = document.createElement('th');
-  thHour.textContent = 'Hourly Totals';
-  tr.appendChild(thHour);
-};
+// function renderHeader()
+// {
+//   let tr = document.createElement('tr');
+//   salesTable.appendChild(tr);
+//   let thHour = document.createElement('th');
+//   thHour.textContent = 'Hourly Totals';
+//   tr.appendChild(thHour);
+// };
 
 
-function renderFooter()
-{
+function renderFooter(){
  let trElem = document.createElement('tr');
  salesTable.appendChild(trElem);
 
@@ -126,24 +130,24 @@ let th3Elem = document.createElement('th');
 
 // nested loop
 let grandTotal = 0;
-for(let i = 0; i < hours.length; i++)
-{
+for(let i = 0; i < hours.length; i++){
   let hourlyTotal = 0;
 
-  for(let j = 0; j < cookieArray.length; j++)
-  {
+  for(let j = 0; j < cookieArray.length; j++){
     hourlyTotal = hourlyTotal + cookieArray[j].cookiesBoughtPerHour[i];
     grandTotal = grandTotal + cookieArray[j].cookiesBoughtPerHour[i];
   }
 
-}
-let td3Elem = document.createElement('td');
-  td3Elem.textContent = hourlyTotal;
-  trElem.appendChild(td3Elem);
 
-let td4Elem = document.createElement('td');
-  td4Elem.textContent = grandTotal;
-  trElem.appendChild(td3Elem);
+  let td3Elem = document.createElement('th');
+    td3Elem.textContent = hourlyTotal;
+    trElem.appendChild(td3Elem);
+
+  
+  }
+  let td4Elem = document.createElement('td');
+    td4Elem.textContent = grandTotal;
+    trElem.appendChild(td4Elem);
 };
 
 
@@ -169,50 +173,56 @@ let lima = new Cookies('Lima', 2, 16, 4.6);
 createHeader();
 
 
-seattle.cookiesHour();
+
+
 seattle.render();
 
-tokyo.cookiesHour();
+
 tokyo.render();
 
-dubai.cookiesHour();
+
 dubai.render();
 
-paris.cookiesHour();
+
 paris.render();
 
-lima.cookiesHour();
+
 lima.render();
 
 renderFooter();
+// renderHeader();
 // ********** Form Insert ****************
 
 // ******** Step 3: Define our callback **********
 
-// function handleSubmit(event){
-//   event.preventDefault();
-
-//   // let city = event.target.City.value
-//   // let maxCustL = event.target.maxCust.value
-//   // let minCustL = event.target.minCust.value
-//   // let avgCookieL = event.target.avgCookie.value
-
-
-//   // splits a string into an array of substrings and return the new array
-//   // [variable]= [variable].split(',');
-
-//   // let newArray = new Array(city, maxCustL, minCustL, avgCookieL);
-//   // Hint: Remove your footer (google it) and recreate it.
+function handleSubmit(event){
+  event.preventDefault();
+  // newStand = new.
+  let cityL = event.target.City.value;
+  console.log(cityL);
+  let minCustL = +event.target.minCust.value;
+  console.log(minCustL);
+  let maxCustL = +event.target.maxCust.value;
+  console.log(maxCustL);
+  let avgCookieL = +event.target.avgCookie.value;
+  console.log(avgCookieL);
 
 
-//   // A way to reset the website: 
+  // splits a string into an array of substrings and return the new array
+  // [variable]= [variable].split(',');
 
-//     // newArray.cookiesHour();
-//     // newArray.render();
+  let newArray = new Cookies(cityL, minCustL, maxCustL, avgCookieL);
+  // Hint: Remove your footer (google it) and recreate it.
+
+
+  // A way to reset the website: 
 
     
-// }
+    newArray.render();
+    myForm.rest();
+}
 
 
-// // ************ STEP 2:  Attach event listener for form lab 09*************
-// myForm.addEventListener('submit', handleSubmit);
+
+// ************ STEP 2:  Attach event listener for form lab 09*************
+myForm.addEventListener('submit', handleSubmit);

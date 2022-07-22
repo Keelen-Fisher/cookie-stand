@@ -31,7 +31,6 @@ Include all of the typical stuff that you’ll find on the home page of a busine
 
    <nav>
       <ul>
-        <li><a href="#">Locations:</a></li>
         <li><a href="#">Hours of Operation:</a></li>
         <li><a href="#">More About Us:</a></li>
         
@@ -42,6 +41,7 @@ Include all of the typical stuff that you’ll find on the home page of a busine
   </header>
 
   <main>
+   
 
       <article>
   
@@ -56,7 +56,17 @@ Include all of the typical stuff that you’ll find on the home page of a busine
 
    
   
-    
+      <div>
+        <h1>Locations:</h1>
+        <ul>
+          <li>Seattle: 1225 East Lavender Park, 77604</li>
+          <li>Tokyo: 3264 Akira Dr, 85993</li>
+          <li>Dubai: 8432 Rich Park Blvd, 55332</li>
+          <li>Paris: 4324 Love Park, 42232</li>
+          <li>Lima: 5934 Lost City Ave, 34323</li>
+
+        </ul>
+      </div>
     
 
       <section id="cookie-city">
@@ -73,7 +83,29 @@ Include all of the typical stuff that you’ll find on the home page of a busine
         <h3>Cities, Times, and Cookies Here!</h3>
         <table id="sales-table"></table>
 
-       
+        <form id="my-form">
+      <fieldset>
+        <legend>Enter a New City!!</legend>
+  
+        <!-- inputs and labels: 2 options -->
+        <!-- Option 1: have input and label as siblings/ Important need "for" on label , "id", on input, tethers them together-->
+          
+        <label for="City">City:</label>
+        <input id="City" text="text" name="City" required>
+
+        <label for="minCust">Minimum Customers At The Hour: </label>
+        <input id="minCust" text="number" name="minCust" required>
+        
+        <label for="maxCust">Maximum Customers At The Hour: </label>
+        <input id="maxCust" text="number" name="minCust" required>
+
+        <label for="avgCookie">The Average Cookie Sold: </label>
+        <input id="avgCookie" text="number" name="avgCookie" required>
+      </fieldset>
+
+
+      <button type="submit">Submit</button>
+    </form>
 
   </main>
 
