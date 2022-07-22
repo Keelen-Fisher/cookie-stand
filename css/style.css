@@ -133,3 +133,12 @@ form{
   margin-bottom: 50px;
   color: whitesmoke;
 }
+
+fieldset{
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 15px;
+}
+

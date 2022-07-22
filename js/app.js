@@ -217,7 +217,7 @@ function handleSubmit(event){
 
   // A way to reset the website: 
 
-    
+    //  document.getElementById('render')(0);
     newArray.render();
     myForm.reset();
 }
