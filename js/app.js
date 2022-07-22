@@ -219,7 +219,7 @@ function handleSubmit(event){
 
     
     newArray.render();
-    myForm.rest();
+    myForm.reset();
 }
 
 
