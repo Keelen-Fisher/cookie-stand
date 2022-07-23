@@ -217,8 +217,9 @@ function handleSubmit(event){
 
   // A way to reset the website: 
 
-    //  document.getElementById('render')(0);
+     document.getElementById('sales-table').deleteRow(-1);
     newArray.render();
+    renderFooter();
     myForm.reset();
 }
 
