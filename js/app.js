@@ -1,13 +1,9 @@
 'use strict';
 
-let cookiesSale = document.getElementById('cookie-city');
+// let cookiesSale = document.getElementById('cookie-city');
 let salesTable = document.getElementById('sales-table');
 // ************ STEP 1: 
 let myForm = document.getElementById('my-form');
-
-// console.dir(cookiesSale);
-// console.dir(salesTable);
-
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 //  For lab 07:
@@ -22,6 +18,7 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 // ********** CONSTRUCTOR REFACTOR *************
 let cookieArray = [];
 
+// Constructor
 function Cookies(city, minCust, maxCust, avgCookie){
 
   // Unique
@@ -29,9 +26,6 @@ function Cookies(city, minCust, maxCust, avgCookie){
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookie = avgCookie;
-  
-// //  Not Unique
-  // this.hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
   this.cookiesBoughtPerHour = [];
   this.totalDailyCookies = 0;
 
@@ -40,7 +34,13 @@ function Cookies(city, minCust, maxCust, avgCookie){
 
 
 // ************** PROTOTYPE METHODS ***********
+//  Prototypes allow you to modify the properties and methods of an object at runtime. This means that you can change the behavior of an object on the fly, which can be useful in certain situations.
 
+/* `Cookies.prototype.randomCustomerPerHour = function()` is a prototype method that generates a random
+number of customers per hour for a `Cookies` object. It uses the `Math.random()` method to generate
+a random number between the minimum and maximum number of customers per hour for the city
+represented by the `Cookies` object. The `Math.floor()` method is used to round down the result to
+the nearest integer. The method returns the random number of customers per hour. */
 Cookies.prototype.randomCustomerPerHour = function(){
   return Math.floor(Math.random() * (this.maxCust -this.minCust + 1) + this.minCust);
 };
@@ -57,9 +57,13 @@ Cookies.prototype.cookiesHour = function()
 };
 
 function createHeader(){
+  /* `let rowNew = document.createElement('tr')` is creating a new HTML table row element (`<tr>`) and
+  assigning it to the variable `rowNew`. This new row will be used to add data to the sales table. */
   let rowNew = document.createElement('tr');
   salesTable.appendChild(rowNew);
 
+  /* `let emptySpace = document.createElement('td');` is creating a new HTML table data cell element
+  (`<td>`) and assigning it to the variable `emptySpace`. */
   let emptySpace = document.createElement('td');
     rowNew.appendChild(emptySpace);
 
@@ -75,6 +79,10 @@ function createHeader(){
 
 };
 
+/* `Cookies.prototype.render = function()` is a prototype method that is adding a `render()` method to
+the `Cookies` constructor function's prototype. This method generates the HTML table row for the
+city represented by the `Cookies` object, including the hourly cookie sales data and the total daily
+cookies sold. */
 Cookies.prototype.render = function()
 {
 this.cookiesHour();
@@ -86,6 +94,7 @@ th1Elem.textContent = this.city
 rowElem.appendChild(th1Elem);
 
 for(let i = 0; i < hours.length; i++){
+  // td -> cells within a table.
   let td1Elem = document.createElement('td');
   td1Elem.textContent = this.cookiesBoughtPerHour[i];
   rowElem.appendChild(td1Elem);
@@ -134,12 +143,17 @@ for(let i = 0; i < hours.length; i++){
   let hourlyTotal = 0;
 
   for(let j = 0; j < cookieArray.length; j++){
+    /* `hourlyTotal = hourlyTotal + cookieArray[j].cookiesBoughtPerHour[i]` is calculating the total
+    number of cookies sold in a particular hour across all cities. It is iterating through each city
+    in the `cookieArray` and adding the number of cookies sold in the current hour (`i`) to the
+    `hourlyTotal` variable. This is done for each hour in the `hours` array, resulting in a total
+    number of cookies sold per hour across all cities. */
     hourlyTotal = hourlyTotal + cookieArray[j].cookiesBoughtPerHour[i];
     grandTotal = grandTotal + cookieArray[j].cookiesBoughtPerHour[i];
   }
 
 
-  let td3Elem = document.createElement('th');
+  let td3Elem = document.createElement('td');
     td3Elem.textContent = hourlyTotal;
     trElem.appendChild(td3Elem);
 
@@ -172,21 +186,10 @@ let lima = new Cookies('Lima', 2, 16, 4.6);
 
 createHeader();
 
-
-
-
 seattle.render();
-
-
 tokyo.render();
-
-
 dubai.render();
-
-
 paris.render();
-
-
 lima.render();
 
 renderFooter();
@@ -218,6 +221,9 @@ function handleSubmit(event){
   // A way to reset the website: 
 
      document.getElementById('sales-table').deleteRow(-1);
+    /* `newArray.render();` is calling the `render()` method on the newly created `Cookies` object
+    `newArray`. This method generates the HTML table row for the city represented by the `newArray`
+    object, including the hourly cookie sales data and the total daily cookies sold. */
     newArray.render();
     renderFooter();
     myForm.reset();
@@ -226,4 +232,7 @@ function handleSubmit(event){
 
 
 // ************ STEP 2:  Attach event listener for form lab 09*************
+/* `myForm.addEventListener('submit', handleSubmit);` is attaching an event listener to the `myForm`
+element that listens for a `submit` event. When the `submit` event is triggered (i.e. when the user
+submits the form), the `handleSubmit` function is called. */
 myForm.addEventListener('submit', handleSubmit);
